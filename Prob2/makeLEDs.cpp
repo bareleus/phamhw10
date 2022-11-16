@@ -16,6 +16,7 @@
 #include<fstream>
 #include<string>
 #include<sstream>
+#include <unistd.h>
 #include "makeLEDs.h"
 using namespace std;
 
@@ -57,6 +58,22 @@ void LED::flash(string delayms = "50"){
    writeLED("/trigger", "timer");
    writeLED("/delay_on", delayms);
    writeLED("/delay_off", delayms);
+}
+
+void LED::blink(int num){
+	cout << "Making LED" << number << " blink." << endl;	
+	cout << "Blinking LED " << num << " times." << endl;
+	removeTrigger();
+	// A count up variable
+	int counter = 0;
+	// Loop to blink the n times LED
+	while(counter!=num){
+		writeLED("/brightness","1"); // Turn on the LED
+		sleep(1); // Stay on a sec
+		writeLED("/brightness","0"); // Turn off the LED
+		sleep(1); // Stay off for a sec
+		counter++; // Keep track the number of time that the LED has been blinked.   
+	}
 }
 
 void LED::outputState(){

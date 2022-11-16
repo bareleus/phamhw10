@@ -15,8 +15,8 @@
 #include<fstream>
 #include<string>
 #include<sstream>
-#ifndef DEREK_LED_H
-#define DEREK_LED_H
+#ifndef MAKE_LEDS_H
+#define MAKE_LEDS_H
 
 using namespace std;
 
@@ -31,6 +31,7 @@ class LED{
       virtual void turnOn();
       virtual void turnOff();
       virtual void flash(string delayms);
+      virtual void blink(int num);
       virtual void outputState();
       virtual ~LED();
 };

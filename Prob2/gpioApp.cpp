@@ -1,3 +1,6 @@
+// gpioApp.cpp takes no argument
+// Example: ./gpioApp
+
 #include "AnalogIn.h"
 #include "makeLEDs.h"
 #include "GPIO.h"
@@ -24,7 +27,7 @@ int main(int argc, char* argv[]){
 	led1.turnOn();
 	led3.turnOn();
 	// Flash user LED 2 three times.
-	led2.flash("50");
+	led2.blink(3);
 	// Read the temperature sensor and display its value.
 	cout << "The value for temperature sensor is: " << analog.readAdcSample() << endl;
 	// Read the push button on P8.16
