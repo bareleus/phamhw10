@@ -1,3 +1,6 @@
+# This program takes no argument
+# Example: python3 cube.py
+
 def cb(x):
     result = x * x * x
     return result
